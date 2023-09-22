@@ -1,0 +1,24 @@
+.divBox{
+    border:1px solid gray;
+    width: 210px;
+    height: 145px;
+}
+
+.selectBox {
+    width: 210px;
+    padding: .8em .5em;
+    background-color:rgb(205, 207, 202);
+
+}
+
+.textbox{
+    margin-left: 0px;
+    margin-top : 0px;
+    width: 203px;
+    height: 100px;
+    display: inline-block;
+}
+
+.equalBox{
+
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 정보입력</title>
+</head>
+<body>
+    
+    <table width = "900px">
+        <tr>
+            <td  width = "300px">1 정보입력</td>
+            <td><input type="text" id="name" placeholder="이름" size="50"></td>
+        </tr>
+        <tr> 
+            <td rowspan="6"></td>
+            <td><input type="text" id="id" placeholder="아이디" size="50"></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="password" placeholder="비밀번호" size="50"></td>
+            <td width = "20%"><a href="http://www.google.com">비밀번호 도움말</a><br></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="passwordCheck" placeholder="비밀번호 재입력" size="50"></td>
+        </tr>
+        <tr>
+            <td>
+                <select>
+                    <option>휴대폰 번호 선택 </option>
+                    <option>010</option>
+                    <option>070</option>
+                </select>
+                -
+            <input type="text" id="phone1" size="10" maxlength="4">
+            -
+            <input type="text" id="phone2" size="10" maxlength="4"></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="email" placeholder="이메일">@
+                <select>
+                    <option>선택</option>
+                    <option>naver.com</option>
+                    <option>gmail.com</option>
+                    <option>kakao.com</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+ 
+    <table width = "900px">
+        <tr>
+            <td rowspan="4" width="150px"></td>
+            <td>
+                <select>
+                    <option>전화번호 </option>
+                    <option>02</option>
+                    <option>050</option>
+                </select>
+                -
+            
+            <input type="text" id="call1">-
+            <input type="text" id="call2"></td>
+        </tr>
+        <tr>
+            <td>
+                <select>
+                    <option>휴대폰 번호 </option>
+                    <option>010</option>
+                    <option>020</option>
+                </select>
+                -
+            
+            <input type="text" id="call1">-
+            <input type="text" id="call2"></td>
+            <td><input type="button" value="휴대폰 인증"></td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="phoneMemo">인증받은 휴대폰 번호를 대표번호로 사용
+            <input type="radio" name="phoneMemo">다른번호 등록
+            <input type="radio" name="phoneMemo">다음에 등록함</td>
+        <tr>
+            <td><input type="text" id="postNum" placeholder="우편번호" size="50"></td>
+            <td><input type="button" value="주소찾기"></td>
+        </tr>
+    </table>
+
+    <input type="button" value="가입신청" style="background-color: red; color:white">
+    <input type="button" value="취소">
+</body>
+</html>
