@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>환율 계산기</title>
     <link rel="stylesheet" href="myStyle.css">
-    <script src="myScript.js"></script>
+    <script src="exchScript.js"></script>
 </head>
 <body>
     환율 계산기<br><br>
@@ -13,17 +13,28 @@
     <div class="divBox">
         <div>
             <select onchange="exchange()" id="contry" class="selectBox">
-                <option value="usd">미국 USD</option>
-                <option value="krw">한국 KRW</option>
-                <option value="jpy">일본 KRW</option>
-                <option value="gbp">영국 GBP</option>
+                <option value="3">미국 USD</option>
+                <option value="0">한국 KRW</option>
+                <option value="1">일본 JPY</option>
+                <option value="4">유럽연합 EUR</option>
+                <option value="5">중국 CNY</option>
+                <option value="2">영국 GBP</option>
+                <option value="6">호주 AUD</option>
+                <option value="7">캐나다 CAD</option>
+                <option value="8">뉴질랜드 NZD</option>
+                <option value="9">태국 THB</option>
+                <option value="10">베트남 VND</option>
+                <option value="11">홍콩 HKD</option>
+                <option value="12">대만 TWD</option>
             </select>
         </div>
         
-        <div id="inputBox">
+        <div>
             <input type="text" class="textbox" id="money" placeholder="돈을 입력하세요" 
-                    oninput="exchangeResult('money2')">
+                    oninput="exchangeResult('money', 'money2')"
+                    maxlength="13">
         </div>
+        <div id="moneyText" class="wonBox"></div>
     </div>
 
     <div class="equalBox">
@@ -32,18 +43,29 @@
 
     <div class="divBox">
         <div>
-            <select onchange="exchange2()" id="contry2" class="selectBox">
-                <option value="krw">한국 KRW</option>
-                <option value="usd">미국 USD</option>
-                <option value="jpy">일본 KRW</option>
-                <option value="gbp">영국 GBP</option>
+            <select onchange="exchange()" id="contry2" class="selectBox">
+                <option value="0">한국 KRW</option>
+                <option value="3">미국 USD</option>
+                <option value="1">일본 JPY</option>
+                <option value="4">유럽연합 EUR</option>
+                <option value="5">중국 CNY</option>
+                <option value="2">영국 GBP</option>
+                <option value="6">호주 AUD</option>
+                <option value="7">캐나다 CAD</option>
+                <option value="8">뉴질랜드 NZD</option>
+                <option value="9">태국 THB</option>
+                <option value="10">베트남 VND</option>
+                <option value="11">홍콩 HKD</option>
+                <option value="12">대만 TWD</option>
             </select>
         </div>
     
-        <div id="outputBox">
+        <div>
             <input type="text" class="textbox" id="money2" placeholder="돈을 입력하세요" 
-                    oninput="exchangeResult('money')">
+                    oninput="exchangeResult('money2', 'money')"
+                    maxlength="13">
         </div>
+        <div id="money2Text" class="wonBox"></div>
     </div>    
 
 </body>

@@ -1,7 +1,7 @@
-let rate=1339.90;
+let rate = 1339.90;
+let rate2 = 1;
 
 function exchange(){
-    //sfsdfsd
     var contry = document.getElementById("contry");
     var currency = contry.options[contry.selectedIndex].value;
  
@@ -19,27 +19,43 @@ function exchange(){
     }  
 }
 
-function exchange2() {
+function exchange2(str1, str2) {
+    var contry = document.getElementById("contry");
+    var currency = contry.options[contry.selectedIndex].value;
+
     var contry2 = document.getElementById("contry2");
     var currency2 = contry2.options[contry2.selectedIndex].value;
 
-    var money = document.getElementById("money");
-    var money2 = document.getElementById("money2");
+    var money = document.getElementById(str2);
+    var money2 = document.getElementById(str1);
     var num = money2.value;
 
+    if (currency == "krw") {
+        rate = 1;
+    }
+    else if (currency == "jpy") {
+        rate = 906.96;
+    }
+    else if (currency == "gbp") {
+        rate = 1644.93;
+    }
+    else if (currency == "usd") {
+        rate = 1339.90;
+    }  
+
     if (currency2 == "krw") {
-        money.innerHTML = (num / rate).toFixed(2);
+        rate2 = 1;
     }
     else if (currency2 == "jpy") {
-
+        rate2 = 906.96;f
     }
     else if (currency2 == "gbp") {
-
+        rate2 = 1644.93;
     }
     else if (currency2 == "usd") {
-
+        rate2 = 1339.90;
     }
-
+    money.innerHTML = (num / rate * rate2).toFixed(2);
 }
 
 
@@ -68,7 +84,7 @@ function exchangeResult(str) {
     money.value = num;
     var result = (rate * num).toFixed(2);
 
-    var resultBox = document.getElementById("outputBox");
+    var resultBox = document.getElementById("money2");
     resultBox.innerHTML = "";
     resultBox.innerHTML = result; 
 
