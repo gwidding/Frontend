@@ -1,16 +1,15 @@
 let num = 0;
 $(function() {  
-
     text = $("#inputText");
 
     function addText() {
         if (!text.val() == "") {
             $("#enterButton").attr("class", "button");
 
-            let currNum = num;
-            $("#content").append("<img src='x.png' class='delete' data-index='" + currNum + "' id='del_" + currNum + "'>")
-            $("#content").append("<div class='text' id='text_" + currNum + "'>" + text.val() + "</div>");
-            
+            var currNum = num;
+            // $("#content").append("<img src='x.png' class='delete' data-index='" + currNum + "' id='del_" + currNum + "'>")
+            $("#content").append("<div class='text' id='text_" + currNum + "'>" + text.val() 
+                                +"<img src='x.png' class='delete' onclick='delText(" + currNum +")'>" + "</div>");
             text.val('');
             num++;
 
@@ -25,10 +24,7 @@ $(function() {
         $("#content").stop().animate({ scrollTop: "+=1000px" }, "fast");
     }
 
-    function delText(idx) {
-        $("#text_" + idx).remove();
-        $("#del_" + idx).remove();
-    }
+    
 
     $("#enterButton").on('click', addText);
     $("#inputText").on("keypress", function(key) {
@@ -43,3 +39,8 @@ $(function() {
     });  
     
 });
+
+function delText(idx) {
+    $("#text_" + idx).remove();
+    // $("#del_" + idx).remove();
+}
