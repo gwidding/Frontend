@@ -1,0 +1,33 @@
+.outterBoxStyle {
+    /* border: solid black; */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 1000px;
+    height: 500px;
+}
+
+
+.marioStyle {
+    position: fixed;
+    left: 5px;
+    top: 400px;
+    width: 100px;
+    height: 80px;
+}
+ 
+.rocketStyle {
+    position: fixed;
+    top: 400px;
+    left: 2000px;
+    width: 100px;
+    height: 100px;
+}
+
+.backStyle {
+    position: fixed;
+    top: 45px;
+    left: 0px;
+    width: 3500px;
+    height: 510px;
+}
