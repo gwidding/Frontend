@@ -3,22 +3,22 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 1000px;
-    height: 500px;
+    /* width: 1000px;
+    height: 500px; */
 }
 
 
 .marioStyle {
     position: fixed;
     left: 5px;
-    top: 400px;
+    top: 410px;
     width: 100px;
     height: 80px;
 }
  
 .rocketStyle {
     position: fixed;
-    top: 400px;
+    top: 410px;
     left: 2000px;
     width: 100px;
     height: 100px;
@@ -31,3 +31,24 @@
     width: 3500px;
     height: 510px;
 }
+
+.gameoverStyle {
+    width: 1950px;
+    height: 600px;
+    left:0px;
+
+}
+
+.boardStyle {
+    margin-left: 30px;
+    margin-top: 45px;
+    border: 2px solid rgb(0, 255, 0);
+    width: 200px;
+    text-align: center;
+}
+.th, td {
+    padding: 0px;
+    border: 1px dashed #ddd;
+    text-align: center;
+    color:rgb(255, 255, 255);
+  }
