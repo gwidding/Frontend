@@ -18,6 +18,7 @@ $(function() {
         if(key.which == 32) { jump(); }         
     });
     $("#stopButton").on("click", function() { clearInterval(interval);  });
+    // $("#playButton").on("click", function() {  interval = setInterval(createRocket, time); });
 
     
 });
@@ -26,7 +27,6 @@ function timeChange() {
     var rand = Math.random();
     time = (Math.floor(rand*3) + 1) * 1000;
     console.log("초 : " + time);
-    setTimeout(interval, time);
 }
 
 function createRocket() {
@@ -49,7 +49,7 @@ function backStart() {
 function jump() {
     $("#mario").animate({
         top: '200px'
-        }, 300, function() {
+        }, 200, function() {
             $(this).animate( {
                 top: '410px'
             }, 500)
@@ -60,6 +60,8 @@ function checkGame() {
     for(index=rocketRemoveCnt; index<rocketID; index++) {
         console.log("check");
         var x = parseInt($("#rocket" + index).css("left").replace("px", ""));
+        var marioX = parseInt($("#mario").css("left").replace("px", ""));
+ 
         var marioY = parseInt($("#mario").css("top").replace("px", ""));
         var marioWidth = parseInt($("#mario").css("width").replace("px", ""));
 
@@ -69,10 +71,20 @@ function checkGame() {
             rocketRemoveCnt++;
         }
 
-        if ( x >= 5 && x <= 5 + marioWidth) {
+        if ( x >= 50 && x <= 50 + marioWidth) {
             var tab_td = $("#board td");
+
             if (marioY >= 310) {
                 console.log(index + "부딪힘!");
+                $("#mario").animate({
+                    rotate: "360deg",
+                    left: '-120px'
+                },400);
+                $("#mario").animate({
+                    rotate: "0deg",
+                    left: '50px'
+                },200);
+
                 life--;
                 tab_td.eq(3).text(life);
                 console.log("목숨 : " + life);

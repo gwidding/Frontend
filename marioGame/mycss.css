@@ -10,10 +10,11 @@
 
 .marioStyle {
     position: fixed;
-    left: 5px;
+    left: 50px;
     top: 410px;
     width: 100px;
     height: 80px;
+    /* transform: rotate(0); */
 }
  
 .rocketStyle {
