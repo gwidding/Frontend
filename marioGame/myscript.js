@@ -9,24 +9,23 @@ var interval2;
 
 $(function() {
     backStart();
-    timeChange();
+    var randTime = timeChange();
 
-    interval = setInterval(createRocket, time);
+    interval = setInterval(createRocket, randTime);
     interval2 = setInterval(checkGame, 500);
 
     $(document).on("keypress", function(key) {
         if(key.which == 32) { jump(); }         
     });
     $("#stopButton").on("click", function() { clearInterval(interval);  });
-    // $("#playButton").on("click", function() {  interval = setInterval(createRocket, time); });
-
     
 });
 
 function timeChange() {
     var rand = Math.random();
-    time = (Math.floor(rand*3) + 1) * 1000;
-    console.log("초 : " + time);
+    randTime = (Math.floor(rand*3) + 1) * 1000;
+    console.log("초 : " + randTime);
+    return randTime;
 }
 
 function createRocket() {
@@ -36,7 +35,7 @@ function createRocket() {
         left: '-100px'
     }, 3000);
     rocketID++;
-    timeChange();
+    time = randTime;
 }
 
 function backStart() {
@@ -58,20 +57,25 @@ function jump() {
 
 function checkGame() {
     for(index=rocketRemoveCnt; index<rocketID; index++) {
-        console.log("check");
-        var x = parseInt($("#rocket" + index).css("left").replace("px", ""));
+
+        var rocketX = parseInt($("#rocket" + index).css("left").replace("px", ""));
         var marioX = parseInt($("#mario").css("left").replace("px", ""));
- 
         var marioY = parseInt($("#mario").css("top").replace("px", ""));
         var marioWidth = parseInt($("#mario").css("width").replace("px", ""));
+        // if(x <= -100) {
+        //     console.log("rocket" + index + " removed");
+        //     $("#rocket" + index).remove();
+        //     rocketRemoveCount++;
+        // }
+        // var mario_y = parseInt($("#mario").css("top").replace("px", ""));
+        // const rectangle1 = { x: 5, y: mario_y, width: 100, height: 80 };
+        // const rectangle2 = { x: x, y: y, width: 100, height: 80 };
+        // if( isRectangleInRectangle(rectangle1, rectangle2) == true ) {
+        //    console.log("악!! with "+ index);
+        // } 
 
-        if (x < -20) {
-            console.log("rocket" + index + " removed");
-            $("#rocket"+index).remove();
-            rocketRemoveCnt++;
-        }
-
-        if ( x >= 50 && x <= 50 + marioWidth) {
+        if (rocketX >= marioX && rocketX < (marioX + marioWidth)) {
+            console.log("다가옴");
             var tab_td = $("#board td");
 
             if (marioY >= 310) {
@@ -95,6 +99,12 @@ function checkGame() {
                 console.log("점수 : " + score);
             }
         }
+
+        if (rocketX < -20) {
+            console.log("rocket" + index + " removed");
+            $("#rocket" + index).remove();
+            rocketRemoveCnt++;
+        }
     }
 
     if (life == 0) {
@@ -109,3 +119,21 @@ function checkGame() {
     }  
 
 }
+
+// function isRectangleInRectangle(rect1, rect2) {
+//     const x1 = rect1.x;
+//     const y1 = rect1.y;
+//     const width1 = rect1.width;
+//     const height1 = rect1.height;
+
+//     const x2 = rect2.x;
+//     const y2 = rect2.y;
+//     const width2 = rect2.width;
+//     const height2 = rect2.height;
+
+//     // 사각형이 서로 겹치는지 확인합니다.
+//     const isOverlap = x1 < (x2 + width2) && (x1 + width1) > x2 &&
+//                       y1 < (y2 + height2) && (y1 + height1) > y2;
+
+//     return isOverlap;
+// }
