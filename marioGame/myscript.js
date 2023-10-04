@@ -2,14 +2,14 @@ var rocketID = 0;
 var rocketRemoveCnt = 0;
 var score = 0;
 var life = 3;
-var rand = Math.random();
 
+var time;
 var interval;
 var interval2;
 
 $(function() {
     backStart();
-    var time = (Math.floor(rand*3) + 1)*1000;
+    timeChange();
 
     interval = setInterval(createRocket, time);
     interval2 = setInterval(checkGame, 500);
@@ -22,6 +22,13 @@ $(function() {
     
 });
 
+function timeChange() {
+    var rand = Math.random();
+    time = (Math.floor(rand*3) + 1) * 1000;
+    console.log("초 : " + time);
+    setTimeout(interval, time);
+}
+
 function createRocket() {
     $("#outterBox").append("<div id='rocket" + rocketID + "' class='rocketStyle'>" +
                             "<img src='mushroom.png' width='100%' height='100%'></div>");
@@ -29,6 +36,7 @@ function createRocket() {
         left: '-100px'
     }, 3000);
     rocketID++;
+    timeChange();
 }
 
 function backStart() {
@@ -55,7 +63,6 @@ function checkGame() {
         var marioY = parseInt($("#mario").css("top").replace("px", ""));
         var marioWidth = parseInt($("#mario").css("width").replace("px", ""));
 
-        console.log(x);
         if (x < -20) {
             console.log("rocket" + index + " removed");
             $("#rocket"+index).remove();
