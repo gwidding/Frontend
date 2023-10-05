@@ -72,6 +72,7 @@ kakao.maps.load(function() {
 
 
 
+
 $(function() {
     $("#buttonClick").on("click", function() {
         fetch('https://api.weatherapi.com/v1/current.json?key=ed4664a06ce54cabbb064628230410&q=bulk')
@@ -83,10 +84,10 @@ $(function() {
 
     
     $("#buttonRate").on("click", function() {
-        fetch('https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWUSD')
+        fetch('https://ecos.bok.or.kr/api/KeyStatisticList/P3BXRWWFJFN2SBPBU6HX/json/kr/1/10')
         .then(response => response.json())
-        .then(json => console.log(json[0].basePrice))
-        .then(json => showData(json))
+        .then(json => console.log(json))
+        // .then(json => showData(json))
     });
 
 });
