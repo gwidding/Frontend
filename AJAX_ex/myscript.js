@@ -52,6 +52,8 @@ kakao.maps.load(function() {
         
         var resultDiv = document.getElementById('result'); 
         resultDiv.innerHTML = message;
+
+        // position.push({title:'마커', latlng: new kakao.maps.LatLng(latlng.getLat(), latlng.getLng())});
         
     });
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다음 검색</title>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=0b7b66578f252e45816fda9200762ac0"></script>
+    <script src="myscript.js"></script>
+</head>
+<body>
+    <div>
+        <select id="searchTypeBox">
+            <option value="web">웹</option>
+            <option value="image">이미지</option>
+            <option value="video">동영상</option>
+        </select>
+
+        <input type="text" id="searchBox" placeholder="원하는 검색어를 입력하세요">
+        <input type="button" id="buttonClick" value="시작">
+        <div id="dataShow">
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>
