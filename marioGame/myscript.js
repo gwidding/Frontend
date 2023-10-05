@@ -59,10 +59,11 @@ function checkGame() {
     for(index=rocketRemoveCnt; index<rocketID; index++) {
 
         var rocketX = parseInt($("#rocket" + index).css("left").replace("px", ""));
+        var rocketY = parseInt($("#rocket" + index).css("top").replace("px", ""));
         var marioY = parseInt($("#mario").css("top").replace("px", ""));
 
         const rectangle1 = { x: 50, y: marioY, width: 100, height: 80 };
-        const rectangle2 = { x: rocketX, y: marioY, width: 100, height: 100 };
+        const rectangle2 = { x: rocketX, y: rocketY, width: 100, height: 100 };
         if( isRectangleInRectangle(rectangle1, rectangle2) == true ) {
             console.log(index + "부딪힘!");
         } 
@@ -125,8 +126,8 @@ function isRectangleInRectangle(rect1, rect2) {
     const height2 = rect2.height;
 
     // 사각형이 서로 겹치는지 확인합니다.
-    const isOverlap = x1 < (x2 + width2) && (x1 + width1) > x2 &&
-                      y1 < (y2 + height2) && (y1 + height1) > y2;
+    const isOverlap = x1 < (x2 + width2) && x2 < (x1 + width1) &&
+                      y1 < (y2 + height2) && y2 < (y1 + height1);
 
     return isOverlap;
 }
