@@ -1,4 +1,4 @@
-let rate = 1339.90;
+let rate; // 미국이 디폴트
 let rate2 = 1.00;
 let index = 3;
 let index2 = 0;
@@ -9,6 +9,27 @@ var won = ['원', '엔', '파운드', '달러', '유로',
 var rateByContry = [1, 9.67, 1635.54, 1336.50, 1422.70, 
           183.09, 860.91, 991.62, 796.55, 37.14, 0.0549,
           170.90, 41.57];
+
+//0미국, 1엔화, 2유로, 3위안 row[0].DATA_VALUE
+$(function() {
+        fetch('https://ecos.bok.or.kr/api/KeyStatisticList/P3BXRWWFJFN2SBPBU6HX/json/kr/1/10')
+        .then(response => response.json())
+        // .then(json => console.log(json.KeyStatisticList.row[0].DATA_VALUE))
+        .then(json => saveRate(json))
+ 
+});
+
+function saveRate(data) {
+    console.log(data.KeyStatisticList.row);
+    rateByContry[3] = data.KeyStatisticList.row[0].DATA_VALUE;
+    rate = data.KeyStatisticList.row[0].DATA_VALUE;
+    rateByContry[1] = data.KeyStatisticList.row[1].DATA_VALUE;
+    rateByContry[4] = data.KeyStatisticList.row[2].DATA_VALUE;
+    rateByContry[5] = data.KeyStatisticList.row[3].DATA_VALUE;
+}
+
+
+
 
 function exchange(){
     var contry = document.getElementById("contry");
