@@ -6,6 +6,7 @@
     <title>jquery AJAX</title>
     <link rel="stylesheet" href="mycss.css">
     <script src="jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=0b7b66578f252e45816fda9200762ac0"></script>
     <script src="myscript.js"></script>
 </head>
 <body>
@@ -13,7 +14,11 @@
     <div id="dataShow"></div>
     <input type="button" id="buttonRate" value="환율 정보 가져오기">
     
-
+    <p><em>지도를 클릭해주세요!</em></p> 
+    <p id="result"></p> 
+    <div id="map" style="width:900px;height:500px; display: inline-block;"></div>
+    
+    <div id="roadview" style="width:50%;height:500px; display: inline-block;" ></div>
     
 </body>
 </html>
