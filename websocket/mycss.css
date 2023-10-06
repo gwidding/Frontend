@@ -1,0 +1,73 @@
+.box {
+    width: 320px;
+    height: 50px;
+    background: #d9c9e6b0;
+}
+.window {
+    margin-top: 0px;
+    width: 320px;
+    height: 500px;
+    padding: 10px 0;
+    background:#A8C0D6;
+    overflow: scroll;
+    overflow-x:hidden;
+}
+
+.text {
+    padding: 8px;
+    margin : 20px;
+    margin-right: 3px;
+    text-align: right;
+    background: #f5eb84;
+    border-radius: 13px;
+    /* display: inline-block; */
+    max-width: 235px;
+}
+
+.inputBox {
+    width: 235px;
+    height: 33px;
+    font-size: 18px;
+}
+
+.button {
+    width:70px;
+    height: 40px;
+    background-color: #d3d3d3;
+    border: none;
+    color:#ffffffa4;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.turnOn {
+    width:70px;
+    height: 40px;
+    background-color: #cbace4;
+    border: none;
+    color:#fff;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.delete {
+    padding-left: 5px;
+    width: 10px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.enter-column {
+    display: inline-block;
+    
+}
