@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<meta charset='utf-8'>
+<title>이미지 분석</title>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+	.title {
+		margin-top: 50px;
+		font-size: 50pt;
+		width: 100%;
+		margin-bottom: 50px;
+		border: 10px;
+		text-align: center;
+	}
+	
+	.textTitle {
+		color: #424242;
+	}
+	
+	#sendbutton {
+		font-size: 50pt;
+		text-align: center;
+		width: 70%;
+	}
+	
+	#selectbox {
+		margin-top: 100px;
+		font-size: 50pt;
+		text-align: center;
+		width: 70%;
+		height: 300px;
+	}
+</style>
+
+
+<form enctype="multipart/form-data" action="upload.php" method="POST">
+	<!-- Name of input element determines name in $_FILES array -->
+	<div class="title">
+		<img src="ctc.png" />
+	</div>
+	<div class="title">
+		<p class="textTitle">[ 분석할 강아지 이미지 선택 ]</p>
+	</div>
+	<div class="title">
+		<input id="selectbox" name="userfile" type="file" />
+	</div>
+	<div class="title">
+		<input id="sendbutton" type="submit" value="분석 시작" data-theme="a" />
+	</div>
+</form>
+
+
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide"><img src="dogs/1.jpg"></div>
+		<div class="swiper-slide"><img src="dogs/2.jpg"></div>
+		<div class="swiper-slide"><img src="dogs/3.jpg"></div>
+
+		
+		<div class="swiper-slide"><img src="dogs/11.jpg"></div>
+		<div class="swiper-slide"><img src="dogs/12.jpg"></div>
+		<div class="swiper-slide"><img src="dogs/13.jpg"></div>
+
+		
+		<div class="swiper-slide"><img src="dogs/21.jpg"></div>
+		<div class="swiper-slide"><img src="dogs/22.jpg"></div>
+		<div class="swiper-slide"><img src="dogs/23.jpg"></div>
+
+	</div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="carousel.js"></script>
+
+</html>
