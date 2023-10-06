@@ -1,0 +1,120 @@
+.box1 {
+  border: 1px solid rgba(128, 128, 128, 0.159);
+  border-radius: 5px;
+  padding: 1px;
+  width: 40%;
+  height: 500px;
+}
+.header {
+  background-color: rgb(242, 218, 0);
+  border: 1px solid rgb(242, 245, 0);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  margin: 0px;
+  height: 6%;
+  width: 99%;
+  text-align: center;
+}
+.contents {
+  display: flex;
+  background-color: rgb(185, 200, 220);
+  border: 1px solid rgb(173, 186, 201);
+  padding: 3px;
+  overflow-y: scroll;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 76%;
+  width: 97%;
+}
+.textContents {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid rgb(185, 200, 220);
+  min-height: 10%;
+}
+
+.textBox {
+  display: block;
+  background-color: rgb(255, 226, 2);
+  border-radius: 10px;
+  padding: 5px;
+  min-height: 10%;
+  max-width: 60%;
+  font-size: 1px;
+  align-self: center;
+}
+.textBox2 {
+  display: block;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  min-height: 10%;
+  max-width: 60%;
+  font-size: 1px;
+  align-self: center;
+}
+
+.textEditBox {
+  background-color: rgb(185, 200, 220);
+  min-width: 20%;
+}
+
+.chat {
+  width: 99%;
+  height: 16%;
+}
+
+.typing {
+  margin-left: 1px;
+  margin-top: 3px;
+  border: 1px solid rgb(195, 195, 195);
+  width: 97%;
+  height: 65%;
+}
+textarea {
+  outline: none;
+  border: none;
+  font-size: 8px;
+  width: 99%;
+  height: 98%;
+  padding-left: 4px;
+}
+.emoji {
+  height: 26%;
+  width: 100%;
+  display: inline-flex;
+}
+.empty {
+  width: 83%;
+}
+.assigning {
+  background-color: rgba(93, 93, 93, 0.112);
+  border: 1px rgb(255, 226, 2);
+  border-radius: 5px;
+  width: 50px;
+  height: 95%;
+  font-size: 1px;
+  text-align: center;
+  line-height: 20px;
+}
+.assigning:hover {
+  background-color: rgb(196, 176, 0);
+  color: gray;
+}
+
+.x {
+  display: flex;
+  border: 2px solid rgb(0, 0, 0);
+  width: 40%;
+  height: 200px;
+}
+.y {
+  border: 2px solid rgb(255, 0, 0);
+  width: 40%;
+  height: 98%;
+}
+.z {
+  border: 2px solid rgb(17, 0, 255);
+  width: 70%;
+  height: 98%;
+}
