@@ -31,8 +31,8 @@
 .gameoverStyle {
     width: 1950px;
     height: 600px;
-    left:0px;
-
+    margin-top : 150px;
+    margin-left: 150px;
 }
 
 .boardStyle {

@@ -62,37 +62,35 @@ function checkGame() {
         var rocketY = parseInt($("#rocket" + index).css("top").replace("px", ""));
         var marioY = parseInt($("#mario").css("top").replace("px", ""));
 
-        const rectangle1 = { x: 50, y: marioY, width: 100, height: 80 };
-        const rectangle2 = { x: rocketX, y: rocketY, width: 100, height: 100 };
-        if( isRectangleInRectangle(rectangle1, rectangle2) == true ) {
-            console.log(index + "부딪힘!");
-        } 
+        // const rectangle1 = { x: 50, y: marioY, width: 100, height: 80 };
+        // const rectangle2 = { x: rocketX, y: rocketY, width: 100, height: 100 };
 
-        // if (rocketX >= marioX && rocketX < (marioX + marioWidth)) {
-        //     console.log("다가옴");
-        //     var tab_td = $("#board td");
+        if (50 < (rocketX + 100) && rocketX < 150) {
+            var tab_td = $("#board td");
+            if (marioY < (rocketY + 100) && rocketY < (marioY + 80)) {
+                console.log("부딪힘");
 
-        //     if (marioY >= 310) {
-        //         console.log(index + "부딪힘!");
-        //         $("#mario").animate({
-        //             rotate: "360deg",
-        //             left: '-120px'
-        //         },400);
-        //         $("#mario").animate({
-        //             rotate: "0deg",
-        //             left: '50px'
-        //         },200);
+                $("#mario").animate({
+                    rotate: "360deg",
+                    left: '-100px'
+                },400,
+                function() {
+                    $("#mario").animate({
+                        rotate: "0deg",
+                        left: '50px'
+                    },400)
+                });
 
-        //         life--;
-        //         tab_td.eq(3).text(life);
-        //         console.log("목숨 : " + life);
-        //     }
-        //     else {
-        //         score++;
-        //         tab_td.eq(1).text(score);
-        //         console.log("점수 : " + score);
-        //     }
-        // }
+                life--;
+                console.log("목숨 : " , life);
+                tab_td.eq(3).text(life);               
+            }
+            else {
+                score++;
+                console.log("점수 : ", score);
+                tab_td.eq(1).text(score);
+            }
+        }
 
         if (rocketX < -20) {
             console.log("rocket" + index + " removed");
@@ -103,17 +101,15 @@ function checkGame() {
 
     if (life == 0) {
         var gameoverBox = $("#outterBox");
-
         gameoverBox.html("<div id='gameoverBox" + "' class='gameoverStyle'>" +
-                        "<img src='gameover.jpg' width='100%' height='100%'></div>");
+                        "<img src='over.png' width='50%' height='50%'></div>");
         clearInterval(interval);
         clearInterval(interval2);
-        $("#mario").remove();
-        $("#backgroud").remove();
-    }  
-
+    }
 }
 
+// 좌우도 움직일 때 사용하면 좋음
+/*
 function isRectangleInRectangle(rect1, rect2) {
     const x1 = rect1.x;
     const y1 = rect1.y;
@@ -131,3 +127,4 @@ function isRectangleInRectangle(rect1, rect2) {
 
     return isOverlap;
 }
+*/
