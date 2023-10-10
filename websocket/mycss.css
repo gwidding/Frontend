@@ -15,7 +15,7 @@
     flex-direction: column;
 }
 
-.text {
+.textBox {
     padding: 9px;
     margin : 10px;
     margin-left: auto;
@@ -27,7 +27,7 @@
     max-width: 60%;
 }
 
-.text2 {
+.textBox2 {
     padding: 9px;
     margin : 10px;
     margin-right: auto;
