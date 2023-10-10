@@ -10,7 +10,7 @@ socket.onopen = function() {
 }
 socket.onmessage = function(e) {
     var msgData = e.data.split(":");
-    console.log("보낸사랑 ID :  ", msgData[0]);
+    console.log("보낸사람 ID :  ", msgData[0]);
     if (msgData[0] !== myID) {
         console.log("메세지 왔어요~", msgData[1]);
         receiveText(e.data);
@@ -49,11 +49,10 @@ function sendText(msg) {
     if (!msg == "") {
         fetch("http://localhost:8080/websocket/dataadd.jsp?userid=" + myID +
                 "&message=" + msg);
-    
 
         $("#enterButton").attr("class", "button"); // 보냈으니 버튼 꺼짐
 
-        var myMsg = myID + ":" + $("#inputText").val();
+        var myMsg = myID + ": " + $("#inputText").val();
         var currNum = num;
         $("#content").append("<div class='text' id='text_" + currNum + "'>"
                             +"<span>" + msg + "</span>" 
