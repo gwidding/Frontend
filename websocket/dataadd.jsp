@@ -21,7 +21,7 @@
 	  conn = DriverManager.getConnection(jdbcUrl,dbId ,dbPass );
 	  out.println("제대로 연결되었습니다.");
 
-    String sql = "insert into message values(0,?,?,now())";
+    String sql = "insert into message values (0, ?, ?, now())";
     pstmt=conn.prepareStatement(sql);
     pstmt.setString(1,userID);
     pstmt.setString(2,userMessage);

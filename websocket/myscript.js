@@ -9,9 +9,10 @@ socket.onopen = function() {
 }
 socket.onmessage = function(e) {
     var msgData = e.data.split(":");
-    console.log("보낸사람 ID: ", senderID);
-    console.log("메세지 왔어요~", message);
-    sendMessage(senderID, message);
+    console.log("보낸사람 : ", msgData[0], ", 메세지 : ", msgData[1]);
+    sendText(msgData[0], msgData[1]);
+    fetch("http://localhost:8080/websocket/dataadd.jsp?userid=" + myID +
+        "&message=" + msgData[1]);
 }
 socket.onclose = function(e) {
     console.log("closed");
@@ -19,11 +20,12 @@ socket.onclose = function(e) {
 function inputChatData(data) {
     console.log(data);
     for (var index=0; index < data.length; index++) {
-        var senderID = data.data[index].userid; // 저장된 메시지의 보낸 사람 ID
+        var userid = data.data[index].userid;  // 저장된 메시지의 보낸 사람 ID
         var message = data.data[index].message;  // 저장된 메시지 내용
-        console.log(senderID, message);
-        sendMessage(senderID, message);
+        console.log(userid, message);
+        sendText(userid, message); // 저장된 메시지 출력
     }
+    console.log("이전 대화 불러오기 완료");
 }
 
 $(function() {
@@ -31,6 +33,7 @@ $(function() {
     .then(response => response.json())
     .then(json => inputChatData(json))
 
+    // userid 입력
     $("#idButton").on("click", function() {
         myID = $("#name").val();
     });
@@ -38,11 +41,16 @@ $(function() {
     // 클릭이나 엔터 이벤트
     textBox = $("#inputText");
     $("#enterButton").on('click', function() {
-        sendText(textBox.val())
+        // sendText(myID, textBox.val());
+        socket.send(myID + ":" + $("#inputText").val());
+        $("#inputText").val('');
+        
     });
     $("#inputText").on("keypress", function(key) {
         if (key.which == 13) {
-            sendText(textBox.val());
+            socket.send(myID + ":" + $("#inputText").val());
+            // sendText(myID, textBox.val());
+            $("#inputText").val('');
         }
     });
 
@@ -52,22 +60,18 @@ $(function() {
     });
 });
 
-function sendText(senderID, message) {
+function sendText(currentID, message) {
     if (!message == "") {
-        fetch("http://localhost:8080/websocket/dataadd.jsp?userid=" + senderID +
-            "&message=" + message);
-
         $("#enterButton").attr("class", "button"); // 버튼 꺼짐
+        
 
-        var myMsg = senderID + ": " + message;
-        var currNum = num;
-        var messageClass = senderID === myID ? "text1" : "text2"; // 보낸 메시지와 받은 메시지를 구분
-        $("#content").append("<div class='" + messageClass + "' id='text_" + currNum + "'>"
+        var myMsg = currentID + ": " + message;
+        var messageClass = currentID === myID ? "text1" : "text2"; // 보낸 메시지와 받은 메시지를 구분
+        $("#content").append("<div class='" + messageClass + "' id='text_" + num + "'>"
             + "<span>" + myMsg + "</span>"
-            + "<img src='x.png' class='delete' onclick='delText(" + currNum + ")'>"
+            + "<img src='x.png' class='delete' onclick='delText(" + num + ")'>"
             + "</div>");
-
-        $("#inputText").val('');
+        
         num++;
     } else {
         // console.log("입력 값 없음");
